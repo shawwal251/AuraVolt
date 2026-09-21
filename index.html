@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraVolt - Go Solar. Save More. Live Better.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        solargreen: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        solarorange: {
+                            500: '#f97316',
+                            600: '#ea580c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-solargreen-600 selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 rounded-lg bg-solargreen-700 flex items-center justify-center text-white shadow-md group-hover:bg-solargreen-800 transition-colors">
+                    <i class="fa-solid fa-bolt text-sm"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-gray-900">Aura<span class="text-solargreen-700">Volt</span></span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <a href="#home" class="hover:text-solargreen-700 transition-colors">Home</a>
+                <a href="#about" class="hover:text-solargreen-700 transition-colors">About us</a>
+                <a href="#solutions" class="hover:text-solargreen-700 transition-colors">Solar Solutions</a>
+                <a href="#reason" class="hover:text-solargreen-700 transition-colors">Why Us?</a>
+                <a href="#calculator" class="hover:text-solargreen-700 transition-colors">Savings Calculator</a>
+                <a href="#testimonials" class="hover:text-solargreen-700 transition-colors">Testimonials</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center">
+                <a href="#calculator" class="bg-solargreen-700 hover:bg-solargreen-800 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm hover:shadow transition-all transform hover:-translate-y-0.5">
+                    Get Free Consultation
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-button" aria-label="Toggle mobile menu" class="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg px-6 py-6 space-y-4 animate-fade-in">
+            <a href="#home" class="block text-base font-medium text-gray-700 hover:text-solargreen-700 mobile-link">Home</a>
+            <a href="#about" class="block text-base font-medium text-gray-700 hover:text-solargreen-700 mobile-link">About us</a>
+            <a href="#solutions" class="block text-base font-medium text-gray-700 hover:text-solargreen-700 mobile-link">Solar Solutions</a>
+            <a href="#reason" class="block text-base font-medium text-gray-700 hover:text-solargreen-700 mobile-link">Why Us?</a>
+            <a href="#calculator" class="block text-base font-medium text-gray-700 hover:text-solargreen-700 mobile-link">Savings Calculator</a>
+            <a href="#testimonials" class="block text-base font-medium text-gray-700 hover:text-solargreen-700 mobile-link">Testimonials</a>
+            <div class="pt-2">
+                <a href="#calculator" class="block text-center bg-solargreen-700 hover:bg-solargreen-800 text-white px-5 py-3 rounded-full text-sm font-semibold shadow-sm mobile-link">
+                    Get Free Consultation
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <main id="home">
+        <section class="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl min-h-[580px] flex flex-col justify-end p-6 sm:p-12 lg:p-16 bg-gray-900">
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=2000&q=80" alt="Wind turbines and green hills" class="w-full h-full object-cover object-center opacity-85">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                </div>
+
+                <!-- Hero Content -->
+                <div class="relative z-10 max-w-2xl mb-8 sm:mb-12">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+                        Go Solar. Save More. Live Better.
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-200 mb-8 font-light">
+                        Power Your Home or Business with Clean, Renewable Energy
+                    </p>
+                    <a href="#calculator" class="inline-flex items-center gap-2 bg-solargreen-600 hover:bg-solargreen-700 text-white px-8 py-3.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        Start Saving with Solara
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- 4 Key Icon Badges Float Card -->
+                <div class="relative z-10 glass-badge rounded-2xl p-4 sm:p-6 shadow-xl grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 border border-white/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-solargreen-100 flex items-center justify-center text-solargreen-700 shrink-0 font-bold">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">High Efficiency</h4>
+                            <p class="text-[11px] text-gray-500">Up to 24% output</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-solargreen-100 flex items-center justify-center text-solargreen-700 shrink-0 font-bold">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">Weather-Resistant</h4>
+                            <p class="text-[11px] text-gray-500">Tested for extreme storms</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-solargreen-100 flex items-center justify-center text-solargreen-700 shrink-0 font-bold">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">Smart Monitoring</h4>
+                            <p class="text-[11px] text-gray-500">Real-time app metrics</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-solargreen-100 flex items-center justify-center text-solargreen-700 shrink-0 font-bold">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">Seamless Installation</h4>
+                            <p class="text-[11px] text-gray-500">Expert certified team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+            <div
+                class="grid overflow-hidden rounded-[28px] border border-slate-100 bg-white shadow-soft lg:grid-cols-2">
+                <div class="min-h-[360px] lg:min-h-[560px]"><img
+                        src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=85"
+                        alt="Solar panels installed on a modern building"
+                        class="h-full w-full object-cover transition duration-700 hover:scale-105"></div>
+                <div class="flex items-center justify-center p-8 sm:p-12 lg:p-16">
+                    <div class="max-w-xl">
+                        <span
+                            class="mb-4 block text-[10px] font-bold uppercase tracking-[0.2em] text-solargreen-600">Sustainable
+                            Energy</span>
+                        <h2 class="section-title text-4xl font-bold text-slate-900">Create a Greener Future.</h2>
+                        <p class="section-text mt-5">Every solargreen panel installed is a step towards a cleaner, greener
+                            Malawi. Reduce your carbon footprint and support the transition to sustainable energy.</p>
+                        <p class="section-text mt-4">We provide practical renewable energy solutions designed around the
+                            needs of homes, businesses, farms and institutions.</p>
+                        <a href="#calculator"
+                            class="mt-7 inline-flex items-center gap-2 rounded-full bg-solargreen-600 px-5 py-3 text-xs font-semibold text-white shadow-green transition hover:-translate-y-1 hover:bg-solargreen-700">Request
+                            a Free Consultation <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUTIONS -->
+        <section id="solutions" class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+            <div class="mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+                <div class="max-w-2xl"><span
+                        class="mb-3 block text-[10px] font-bold uppercase tracking-[0.2em] text-solargreen-600">What We
+                        Offer</span>
+                    <h2 class="section-title text-4xl font-bold text-slate-900">Our Solutions</h2>
+                    <p class="section-text mt-4">Energy solutions designed to help homes and businesses access cleaner,
+                        smarter and more reliable power.</p>
+                </div>
+                <a href="#contact"
+                    class="inline-flex w-fit items-center gap-2 rounded-full bg-solargreen-600 px-5 py-3 text-xs font-semibold text-white shadow-green transition hover:-translate-y-1 hover:bg-solargreen-700">View
+                    All <span>→</span></a>
+            </div>
+            <div class="grid gap-8 md:grid-cols-3">
+                <article class="group">
+                    <div class="relative h-[300px] overflow-hidden rounded-[24px]"><img
+                            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=85"
+                            alt="Solar panels generating renewable energy"
+                            class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div><span
+                            class="absolute left-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-[10px] font-bold text-solargreen-700">01</span>
+                    </div>
+                    <div class="pt-5">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-slate-900">Solar Energy Systems</h3><span
+                                class="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition group-hover:border-solargreen-600 group-hover:bg-solargreen-600 group-hover:text-white">→</span>
+                        </div>
+                        <p class="section-text mb-4 text-sm">Reliable solargreen power systems designed to reduce electricity
+                            costs and provide dependable clean energy.</p>
+                        <ul class="space-y-2 text-xs text-slate-600">
+                            <li>• Rooftop & Ground-Mounted Panels</li>
+                            <li>• Off-Grid & Hybrid Systems</li>
+                            <li>• Solar Battery Storage</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="group">
+                    <div class="relative h-[300px] overflow-hidden rounded-[24px]"><img
+                            src="https://images.unsplash.com/photo-1467533003447-e295ff1b0435?auto=format&fit=crop&w=900&q=85"
+                            alt="Wind turbines generating renewable energy"
+                            class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div><span
+                            class="absolute left-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-[10px] font-bold text-solargreen-700">02</span>
+                    </div>
+                    <div class="pt-5">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-slate-900">Wind Energy Solutions</h3><span
+                                class="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition group-hover:border-solargreen-600 group-hover:bg-solargreen-600 group-hover:text-white">→</span>
+                        </div>
+                        <p class="section-text mb-4 text-sm">Harness wind power through efficient turbine systems
+                            designed for reliable renewable electricity generation.</p>
+                        <ul class="space-y-2 text-xs text-slate-600">
+                            <li>• Small & Mid-Scale Wind Turbines</li>
+                            <li>• Hybrid Wind + Solar Systems</li>
+                            <li>• Remote Area Wind Power</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="group">
+                    <div class="relative h-[300px] overflow-hidden rounded-[24px]"><img
+                            src="https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=85"
+                            alt="Smart energy management technology"
+                            class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div><span
+                            class="absolute left-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-[10px] font-bold text-solargreen-700">03</span>
+                    </div>
+                    <div class="pt-5">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-slate-900">Smart Energy Management</h3><span
+                                class="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition group-hover:border-solargreen-600 group-hover:bg-solargreen-600 group-hover:text-white">→</span>
+                        </div>
+                        <p class="section-text mb-4 text-sm">Monitor, understand and optimize your energy usage through
+                            intelligent renewable-energy technology.</p>
+                        <ul class="space-y-2 text-xs text-slate-600">
+                            <li>• Real-Time Monitoring</li>
+                            <li>• Usage Optimization</li>
+                            <li>• App & Web Dashboard</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Why Us? -->
+        <section id="reason" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Description -->
+                <div class="lg:col-span-5">
+                    <h2 class="text-4xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
+                        Why Choose AuraVolt
+                    </h2>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                        At AuraVolt, we combine years of industry expertise with cutting-edge technology to deliver reliable, affordable renewable energy solutions. From consultation to installation, we're committed to helping you reduce energy costs, increase independence, and make a lasting impact on the environment — all with zero hassle.
+                    </p>
+                    <a href="#calculator" class="inline-flex items-center gap-2 bg-solargreen-700 hover:bg-solargreen-800 text-white px-6 py-3 rounded-full text-sm font-semibold shadow transition-all">
+                        Read More
+                    </a>
+                </div>
+
+                <!-- Right Stat Cards Grid -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Stat Card 1 -->
+                    <div class="bg-gray-900 text-white p-8 rounded-3xl shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[220px]">
+                        <div class="absolute inset-0 opacity-20">
+                            <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=600&q=80" alt="Panels" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-0">
+                            <span class="text-4xl sm:text-5xl font-black text-white">25</span>
+                            <span class="text-xs uppercase tracking-wider block font-semibold text-gray-300 mt-1">Year Warranty</span>
+                        </div>
+                        <div class="relative z-0 mt-8">
+                            <p class="text-xs text-gray-300">Guaranteed peak performance & durability.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 2 -->
+                    <div class="bg-solarorange-600 text-white p-8 rounded-3xl shadow-lg flex flex-col justify-between min-h-[220px]">
+                        <div>
+                            <span class="text-4xl sm:text-5xl font-black text-white">16+</span>
+                            <span class="text-xs uppercase tracking-wider block font-semibold text-orange-100 mt-1">Years Experience</span>
+                        </div>
+                        <div class="mt-8">
+                            <p class="text-xs text-orange-100">Trusted renewable energy leaders worldwide.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 3 -->
+                    <div class="bg-solargreen-800 text-white p-8 rounded-3xl shadow-lg flex flex-col justify-between min-h-[220px]">
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Off-Grid & Hybrid Solutions</h3>
+                            <p class="text-xs text-green-100">Complete energy self-sufficiency.</p>
+                        </div>
+                        <div class="mt-8">
+                            <i class="fa-solid fa-solargreen-panel text-2xl text-green-200"></i>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 4 -->
+                    <div class="bg-gradient-to-br from-blue-900 to-indigo-900 text-white p-8 rounded-3xl shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[220px]">
+                        <div class="absolute inset-0 opacity-20">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80" alt="Sunlight" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-0">
+                            <span class="text-4xl sm:text-5xl font-black text-white">22%</span>
+                            <span class="text-xs uppercase tracking-wider block font-semibold text-blue-200 mt-1">More Sunlight Conversion</span>
+                        </div>
+                        <div class="relative z-0 mt-8">
+                            <p class="text-xs text-blue-200">Outperforms standard market panels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator -->
+        <section id="calculator" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-12 shadow-xl border border-gray-100">
+                <div class="max-w-2xl mb-10">
+                    <h2 class="text-4xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-3">
+                        Try Our Free Renewable Energy Calculator
+                    </h2>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Discover how much you can save with solargreen or wind energy today! Our free, easy-to-use calculator gives you an instant estimate of potential savings, system size, and payback period based on your location and energy usage.
+                    </p>
+                </div>
+
+                <!-- Calculator Form Grid -->
+                <form id="savings-calculator-form" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Monthly electricity bill ($)</label>
+                        <input type="number" id="monthly-bill" value="250" min="20" max="5000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Monthly consumption (kWh)</label>
+                        <input type="number" id="monthly-kwh" value="950" min="50" max="10000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Total Area of Rooftop (sq. ft)</label>
+                        <input type="number" id="rooftop-area" value="600" min="100" max="10000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">State / Region</label>
+                        <select id="calc-state" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium bg-white">
+                            <option value="California">California (High Sun, High Tariff)</option>
+                            <option value="Texas">Texas (High Sun, Moderate Tariff)</option>
+                            <option value="New York">New York (Moderate Sun, High Tariff)</option>
+                            <option value="Florida">Florida (High Sun, Moderate Tariff)</option>
+                            <option value="Other" selected>Other / National Average</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Customer Category</label>
+                        <select id="calc-category" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium bg-white">
+                            <option value="residential">Residential Home</option>
+                            <option value="commercial">Commercial Business</option>
+                            <option value="industrial">Industrial Facility</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Electricity unit per cost ($/kWh)</label>
+                        <input type="number" id="unit-cost" value="0.18" step="0.01" min="0.05" max="0.50" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
+                    </div>
+
+                    <div class="md:col-span-3 flex justify-end pt-2">
+                        <button type="submit" class="bg-solargreen-700 hover:bg-solargreen-800 text-white px-8 py-3.5 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-calculator"></i>
+                            Calculate Savings
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Calculation Results Output Card -->
+                <div id="calculator-results" class="mt-8 pt-8 border-t border-gray-100 hidden animate-fade-in">
+                    <h3 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-solargreen-600"></i>
+                        Your Personalized Renewable Energy Estimate
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-solargreen-50 p-6 rounded-2xl border border-solargreen-100">
+                        <div>
+                            <span class="text-xs uppercase font-bold text-solargreen-800 tracking-wider">Estimated Monthly Savings</span>
+                            <div id="res-monthly-savings" class="text-2xl sm:text-3xl font-extrabold text-solargreen-900 mt-1">$185</div>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-bold text-solargreen-800 tracking-wider">Recommended System Size</span>
+                            <div id="res-system-size" class="text-2xl sm:text-3xl font-extrabold text-solargreen-900 mt-1">7.5 kW</div>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-bold text-solargreen-800 tracking-wider">Estimated Payback Period</span>
+                            <div id="res-payback" class="text-2xl sm:text-3xl font-extrabold text-solargreen-900 mt-1">4.2 Years</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--- Testimonials -->
+        <section id="testimonials" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+                <div>
+                    <h2 class="text-4xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">Our Testimonials</h2>
+                    <p class="text-gray-600 text-sm max-w-xl">
+                        They're experiencing the tangible benefits of switching to AuraVolt. These testimonials reflect just a few of the many success stories.
+                    </p>
+                </div>
+                <button class="mt-4 sm:mt-0 self-start sm:self-auto bg-solargreen-700 hover:bg-solargreen-800 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow transition-all">
+                    View All
+                </button>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            "Going solargreen with AuraVolt was the best decision we made for our home. Our energy bills have dropped significantly, and we feel great about reducing our carbon footprint!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-50">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Mandze" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">Mandze</h4>
+                            <p class="text-[11px] text-gray-500">Chikanda, Zomba</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            "Installing solargreen panels from AuraVolt was one of the best decisions we've made. Our electricity bills have dropped significantly, and the installation process was smooth and professional."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-50">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Abudu" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">Abudu</h4>
+                            <p class="text-[11px] text-gray-500">Machinjiri, Blantyre</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            "Choosing AuraVolt for our home in California was the best decision. Our energy bills are lower than ever, and the installation team was punctual and professional."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-50">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="M'buki" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">M'buki</h4>
+                            <p class="text-[11px] text-gray-500">Area 49, Lilongwe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="resources" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="relative rounded-3xl overflow-hidden bg-gray-900 py-16 px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between shadow-2xl gap-8">
+                <div class="absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80" alt="Solar Farm Green Hills" class="w-full h-full object-cover opacity-35">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/80"></div>
+                </div>
+
+                <div class="relative z-10 max-w-xl text-center md:text-left">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+                        Let's Build a Sustainable Future Together
+                    </h2>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                        Join the renewable energy revolution with AuraVolt. Whether it's sun, wind, or both — we've got you covered.
+                    </p>
+                </div>
+
+                <div class="relative z-10 shrink-0">
+                    <a href="#calculator" class="bg-solargreen-700 hover:bg-solargreen-800 text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2">
+                        Get Free Quote
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-gray-100">
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-4">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-solargreen-700 flex items-center justify-center text-white shadow-sm">
+                            <i class="fa-solid fa-bolt text-sm"></i>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-gray-900">Aura<span class="text-solargreen-700">Volt</span></span>
+                    </a>
+                    <p class="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-sm mb-6">
+                        Empowering a sustainable future with cutting-edge solargreen and wind energy solutions. Our mission is to provide affordable, reliable, and clean energy to homes and businesses everywhere.
+                    </p>
+                </div>
+
+                <!-- Col 2: Company -->
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gray-900 mb-4">Company</h4>
+                    <ul class="space-y-3 text-xs sm:text-sm text-gray-600">
+                        <li><a href="#about" class="hover:text-solargreen-700 transition-colors">About</a></li>
+                        <li><a href="#testimonials" class="hover:text-solargreen-700 transition-colors">Customers</a></li>
+                        <li><a href="#solutions" class="hover:text-solargreen-700 transition-colors">Enterprise</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Developers -->
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gray-900 mb-4">Developers</h4>
+                    <ul class="space-y-3 text-xs sm:text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-solargreen-700 transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-solargreen-700 transition-colors">API Reference</a></li>
+                        <li><a href="#" class="hover:text-solargreen-700 transition-colors">API Status</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Help -->
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gray-900 mb-4">Help</h4>
+                    <ul class="space-y-3 text-xs sm:text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-solargreen-700 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-solargreen-700 transition-colors">Condition</a></li>
+                        <li><a href="#testimonials" class="hover:text-solargreen-700 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 5: Contact Info -->
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gray-900 mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-xs sm:text-sm text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-envelope text-solargreen-700"></i>
+                            <span class="text-xs">hello@AuraVolt.com</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-solargreen-700"></i>
+                            <span class="text-xs">044-345-232-487</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright and Socials -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>Copyright © AuraVolt 2026 All Right Reserved.</p>
+                <div class="flex items-center gap-4 text-gray-600">
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-solargreen-700 hover:text-white transition-all"><i class="fa-brands fa-youtube text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-solargreen-700 hover:text-white transition-all"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-solargreen-700 hover:text-white transition-all"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-solargreen-700 hover:text-white transition-all"><i class="fa-brands fa-twitter text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Renewable Energy Savings Calculator Logic
+            const calcForm = document.getElementById('savings-calculator-form');
+            const calcResults = document.getElementById('calculator-results');
+            const resMonthlySavings = document.getElementById('res-monthly-savings');
+            const resSystemSize = document.getElementById('res-system-size');
+            const resPayback = document.getElementById('res-payback');
+
+            calcForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const monthlyBill = parseFloat(document.getElementById('monthly-bill').value) || 200;
+                const monthlyKwh = parseFloat(document.getElementById('monthly-kwh').value) || 800;
+                const rooftopArea = parseFloat(document.getElementById('rooftop-area').value) || 500;
+                const state = document.getElementById('calc-state').value;
+                const category = document.getElementById('calc-category').value;
+
+                // State factor multiplier for sun irradiation & tariff
+                let stateMultiplier = 1.0;
+                if (state === 'California') stateMultiplier = 1.25;
+                if (state === 'New York') stateMultiplier = 1.15;
+                if (state === 'Texas') stateMultiplier = 1.20;
+                if (state === 'Florida') stateMultiplier = 1.18;
+
+                // Category multiplier
+                let categoryMultiplier = 1.0;
+                if (category === 'commercial') categoryMultiplier = 2.5;
+                if (category === 'industrial') categoryMultiplier = 6.0;
+
+                // Calculate estimated savings (approx 75% offset of bill)
+                const estimatedMonthlySavings = Math.round(monthlyBill * 0.75 * stateMultiplier);
+                
+                // Calculate recommended system size in kW (approx 1 kW per 120 kWh monthly)
+                const systemSizeKw = Math.max(2.0, ((monthlyKwh / 120) * (category === 'residential' ? 1.0 : category === 'commercial' ? 2.2 : 5.0))).toFixed(1);
+
+                // Calculate payback period in years
+                const estimatedCost = systemSizeKw * 2800; // $2800 per kW installed average
+                const annualSavings = estimatedMonthlySavings * 12;
+                const paybackYears = (estimatedCost / (annualSavings > 0 ? annualSavings : 1500)).toFixed(1);
+
+                // Update UI results
+                resMonthlySavings.textContent = `$${estimatedMonthlySavings}`;
+                resSystemSize.textContent = `${systemSizeKw} kW`;
+                resPayback.textContent = `${paybackYears} Years`;
+
+                // Show results card
+                calcResults.classList.remove('hidden');
+                calcResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        });
+    </script>
+</body>
+</html>
