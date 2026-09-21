@@ -364,27 +364,27 @@
                 <!-- Calculator Form Grid -->
                 <form id="savings-calculator-form" class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Monthly electricity bill ($)</label>
-                        <input type="number" id="monthly-bill" value="250" min="20" max="5000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Monthly electricity bill (Mwk)</label>
+                        <input type="number" id="monthly-bill" value="0" min="20" max="5000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Monthly consumption (kWh)</label>
-                        <input type="number" id="monthly-kwh" value="950" min="50" max="10000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
+                        <input type="number" id="monthly-kwh" value="0" min="50" max="10000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Total Area of Rooftop (sq. ft)</label>
-                        <input type="number" id="rooftop-area" value="600" min="100" max="10000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
+                        <input type="number" id="rooftop-area" value="0" min="15" max="10000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium" required>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">State / Region</label>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">Region</label>
                         <select id="calc-state" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-solargreen-600 text-sm font-medium bg-white">
-                            <option value="California">California (High Sun, High Tariff)</option>
-                            <option value="Texas">Texas (High Sun, Moderate Tariff)</option>
-                            <option value="New York">New York (Moderate Sun, High Tariff)</option>
-                            <option value="Florida">Florida (High Sun, Moderate Tariff)</option>
+                            <option value="Lilongwe">Lilongwe</option>
+                            <option value="Blantyre">Blantyre</option>
+                            <option value="Zomba">Zomba</option>
+                            <option value="Mzuzu">Mzuzu</option>
                             <option value="Other" selected>Other / National Average</option>
                         </select>
                     </div>
@@ -658,10 +658,10 @@
 
                 // State factor multiplier for sun irradiation & tariff
                 let stateMultiplier = 1.0;
-                if (state === 'California') stateMultiplier = 1.25;
-                if (state === 'New York') stateMultiplier = 1.15;
-                if (state === 'Texas') stateMultiplier = 1.20;
-                if (state === 'Florida') stateMultiplier = 1.18;
+                if (state === 'Lilongwe') stateMultiplier = 1.25;
+                if (state === 'Blantyre') stateMultiplier = 1.15;
+                if (state === 'Zomba') stateMultiplier = 1.20;
+                if (state === 'Mzuzu') stateMultiplier = 1.18;
 
                 // Category multiplier
                 let categoryMultiplier = 1.0;
@@ -680,7 +680,7 @@
                 const paybackYears = (estimatedCost / (annualSavings > 0 ? annualSavings : 1500)).toFixed(1);
 
                 // Update UI results
-                resMonthlySavings.textContent = `$${estimatedMonthlySavings}`;
+                resMonthlySavings.textContent = `Mwk${estimatedMonthlySavings}`;
                 resSystemSize.textContent = `${systemSizeKw} kW`;
                 resPayback.textContent = `${paybackYears} Years`;
 
